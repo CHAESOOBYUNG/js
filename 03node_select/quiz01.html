@@ -35,18 +35,27 @@
 
         var btn = document.getElementById("btn");
         btn.onclick = function() {
-            var seat = document.getElementsByName("seat");
-            var bool = true;
+
+            var seat = document.getElementsByName("seat"); //배열
+            var bool = false; //체크여부를 확인할 변수
+            var arr = new Array(); //요소를 담을 배열
+
             for(var i = 0; i < seat.length; i++) {
-                console.log(seat[i].checked );
-                
-                if(bool) {
-                    console.log(seat[i]);
-                } else {
-                    alert("좌석을 선택해주세요")
-                }
+
+                if( seat[i].checked ) {
+                    arr.push(seat[i]); //배열에 추가
+                    bool = true; //체크되었다
+                } 
             }
-            var obj = JSON.parse();
+
+            if(bool) {
+                //결과 출력
+                var str = JSON.stringify({data: arr});
+                console.log(str);
+            } else {
+                alert("좌석을 체크해주세요")
+            }
+           
         }
 
     </script>
